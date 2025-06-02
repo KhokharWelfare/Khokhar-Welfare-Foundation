@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://khokhar-welfarefoundation.vercel.app/', credentials: true })); // Allow frontend origin
+app.use(cors({ origin: 'https://khokhar-welfarefoundation.vercel.app', credentials: true })); // Allow frontend origin
 app.use(express.json()); // Parse JSON request bodies
 
 mongoose.set('strictQuery', true);
