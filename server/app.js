@@ -14,17 +14,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-const corsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'https://khokhar-welfarefoundation.vercel.app',
-    'https://khokhar-welfare-foundation.vercel.app',
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://khokhar-welfarefoundation.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-};
-app.use(cors(corsOptions));
+}));
+app.options('*', cors());
 app.use(express.json()); // Parse JSON request bodies
 
 mongoose.set('strictQuery', true);
