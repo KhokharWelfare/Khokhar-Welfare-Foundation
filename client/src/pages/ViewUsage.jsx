@@ -8,7 +8,7 @@ function ViewUsage() {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/transaction')
+    axios.get('https://khokhar-welfare-foundation.vercel.app/api/transaction')
       .then(res => setTransactions(res.data.transactions))
       .catch(err => console.error(err));
   }, []);
