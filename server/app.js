@@ -16,7 +16,7 @@ const app = express();
 // Middleware
 const cors = require('cors');
 app.use(cors({
-  origin: ['https://khokhar-welfarefoundation.vercel.app', 'https://www.khokharwelfarefoundaion.com'],
+  origin: ['https://khokhar-welfarefoundation.vercel.app', 'https://www.khokharwelfarefoundation.com'],
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
