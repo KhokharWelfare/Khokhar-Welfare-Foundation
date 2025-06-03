@@ -14,14 +14,15 @@ dotenv.config();
 const app = express();
 
 // Middleware
-const cors = require('cors');
-app.use(cors({
-  origin: ['https://khokhar-welfarefoundation.vercel.app', 'https://www.khokharwelfarefoundaion.com'],
+const corsOptions = {
+  origin: 'https://www.khokharwelfarefoundation.com',
   methods: ['GET', 'POST', 'OPTIONS'],
-  credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
-}));
-app.options('*', cors());
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Enable pre-flight requests for all routes
 app.use(express.json()); // Parse JSON request bodies
 
 // Middleware: Set headers manually for CORS
