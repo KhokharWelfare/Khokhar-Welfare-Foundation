@@ -24,6 +24,19 @@ app.use(cors({
 app.options('*', cors());
 app.use(express.json()); // Parse JSON request bodies
 
+// Middleware: Set headers manually for CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://www.khokharwelfarefoundation.com');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+
 mongoose.set('strictQuery', true);
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI, {
