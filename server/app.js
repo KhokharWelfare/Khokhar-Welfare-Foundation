@@ -18,6 +18,7 @@ const cors = require('cors');
 app.use(cors({
   origin: ['https://khokhar-welfarefoundation.vercel.app', 'https://www.khokharwelfarefoundaion.com'],
   methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.options('*', cors());
