@@ -4,6 +4,14 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const router = express.Router();
 
+const cors = require('cors');
+app.use(cors({
+  origin: ['https://khokhar-welfarefoundation.vercel.app', 'https://www.khokharwelfarefoundaion.com'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors());
+
 // Register Route
 router.post('/register', async (req, res) => {
   const { email, password, name } = req.body;
