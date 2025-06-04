@@ -16,8 +16,8 @@ function AdminPanel() {
       return;
     }
     Promise.all([
-      axios.get('http://localhost:5000/api/admin/donations', { headers: { Authorization: `Bearer ${token}` } }),
-      axios.get('http://localhost:5000/api/admin/users', { headers: { Authorization: `Bearer ${token}` } }),
+      axios.get('https://khokhar-welfare-foundation.vercel.app/api/admin/donations', { headers: { Authorization: `Bearer ${token}` } }),
+      axios.get('https://khokhar-welfare-foundation.vercel.app/api/admin/users', { headers: { Authorization: `Bearer ${token}` } }),
     ])
       .then(([donationsRes, usersRes]) => {
         setDonations(donationsRes.data);
@@ -29,7 +29,7 @@ function AdminPanel() {
   const handleStatusUpdate = async (id, status) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await axios.patch(`http://localhost:5000/api/admin/donations/${id}`, { status }, {
+      const res = await axios.patch(`https://khokhar-welfare-foundation.vercel.app/api/admin/donations/${id}`, { status }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDonations(donations.map(d => d._id === id ? res.data : d));

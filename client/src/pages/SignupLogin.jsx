@@ -31,13 +31,15 @@ function SignupLogin() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const url = isSignup ? 'http://localhost:5000/api/auth/register' : 'http://localhost:5000/api/auth/login';
+    const url = isSignup ? 'https://khokhar-welfare-foundation.vercel.app/api/auth/register' : 'https://khokhar-welfare-foundation.vercel.app/api/auth/login';
     try {
+      console.log(formData, "before");
       const res = await axios.post(url, formData);
       if (isSignup) {
         setMessage('Signup successful! Please login.');
         setFormData({ name: '', email: '', password: '' });
         setIsSignup(false); // Switch to login mode
+        console.log(formData, "after");
       } else {
         localStorage.setItem('token', res.data.token);
         setMessage('Login successful!');
