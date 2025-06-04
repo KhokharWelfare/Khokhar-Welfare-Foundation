@@ -14,15 +14,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-const corsOptions = {
-  origin: 'https://www.khokharwelfarefoundation.com',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Enable pre-flight requests for all routes
+app.use(cors(*));
 app.use(express.json()); // Parse JSON request bodies
 
 // Middleware: Set headers manually for CORS
