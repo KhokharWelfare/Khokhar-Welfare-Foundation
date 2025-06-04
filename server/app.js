@@ -18,6 +18,7 @@ const allowedOrigins = [
   'https://khokharwelfarefoundaion.com',
   'https://www.khokharwelfarefoundaion.com',
   'http://localhost:3000',
+  'http://localhost:5173',
 ];
 
 // Middleware: Use cors package with options
