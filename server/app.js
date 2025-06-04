@@ -14,7 +14,9 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors(*));
+app.use(cors(
+  origin: `https://khokharwelfarefoundaion.com`,
+));
 app.use(express.json()); // Parse JSON request bodies
 
 // Middleware: Set headers manually for CORS
