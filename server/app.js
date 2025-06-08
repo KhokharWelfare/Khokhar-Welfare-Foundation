@@ -63,6 +63,11 @@ mongoose
   .then(() => console.log('MongoDB connected successfully.'))
   .catch((err) => console.log('MongoDB connection error: ', err));
 
+app.get("/api/test", (req, res) => {
+  res.json({ ok: true, time: new Date().toISOString() });
+});
+
+
 // Define APIs
 app.use('/api/auth', authRoutes); // Authentication routes (login, register)
 app.use('/api/donation', donationRoutes); // Donation routes (add, view)
