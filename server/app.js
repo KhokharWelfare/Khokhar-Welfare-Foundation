@@ -77,6 +77,7 @@ app.use('/api/admin', adminRoutes); // Admin routes (manage donations, users)
 // Basic Route for Testing
 app.get('/', (req, res) => {
   res.send('Family Welfare Website Running.');
+  console.log("Working...");
 });
 
 // Start the server
