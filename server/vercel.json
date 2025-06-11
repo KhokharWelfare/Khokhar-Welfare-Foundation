@@ -8,5 +8,8 @@
       "src": "/(.*)",
       "dest": "app.js"
     }
+  ],
+  "rewrites": [
+    { "source": "/:path*", "destination": "/:path*" }
   ]
 }
